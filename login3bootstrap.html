@@ -10,31 +10,39 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <link href="css/login.css" rel="stylesheet">
+    <link href="css/login3.css" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex align-items-center">
     
     
 
 
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col col-mg-6 col-lg-12">
 
-                <div><img id="user" src="img/user.jpg"></div>
-                <h3>vladimir kjahrenov</h3>
+                <div class="card justify-content-center" style="width: 18rem;">
+                    <img  class="rounded-circle" src="img/user.jpg">
+                    <div class="card-body">
+                      <h5 class="card-title">vladimir kjahrenov</h5>
+                      <p class="card-text">
+                        <form>
+                            <div>
+                                <i class="fa fa-user gray" aria-hidden="true"></i>
+                                <input type="text" class="form-control  txtInput roundedBorders gray" name="username" value="" placeholder="username">
+                            </div>
 
-                <form>
-                    <div>
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <input type="text" class="txtInput roundedBorders gray boxShadow" name="username" value="" placeholder="username"> </div>
-                    <div>
-                        <i class="fa fa-lock" aria-hidden="true"></i>
-                        <input type="password" class="txtInput roundedBorders gray boxShadow" name="password" placeholder="password"></div>
-                    <div><input type="submit" class="btnSubmit roundedBorders boxShadow" name="" value="Login"></div>
-                </form>
-
-                <div><a href="#" >Forgot Username / Password</a></div>
+                            <div>
+                                <i class="fa fa-lock gray" aria-hidden="true"></i>
+                                <input type="password" class="form-control txtInput roundedBorders gray" name="password" placeholder="password">
+                            </div>
+                           
+                            <input type="submit" class="btn btn-primary btn-lg btn-block text-capitalize rounded-pill" name="" value="Login"></div>
+                        </form>
+                      </p>
+                      <a href="#" >Forgot Username / Password</a>
+                    </div>
+                </div>
 
             </div>
         </div>
