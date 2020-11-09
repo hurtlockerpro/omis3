@@ -1,0 +1,21 @@
+
+.bg{
+    background-color: crimson;
+}
+
+.thead{
+    font-weight: bold;
+    color: yellow;
+}
+
+tr:nth-child(even) {
+    background-color: gray;
+} 
+
+tr :odd{
+
+}
+
+.col {
+    background-color: yellow;
+}

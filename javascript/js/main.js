@@ -200,6 +200,7 @@ let result = '';
 let cell = `<td>${result}</td>`;
 let row = `<tr>${cell}</tr>`;
 let table = `<table>${row}</table>`;
+let headerCell = `<td>${result}</td>`;
 
 for (let index_x = 0; index_x <= x1.length - 1; index_x++) 
 {
@@ -207,16 +208,44 @@ for (let index_x = 0; index_x <= x1.length - 1; index_x++)
     for (let index_y = 0; index_y <= y1.length - 1; index_y++) 
     {
         //console.log(x1[index_x] + '*' + y1[index_y], '=', x1[index_x] * y1[index_y]);
+        if (index_y == 0) cell += `<td class="col">${x1[index_x]}</td>`;
+        if (index_x == 0) headerCell += `<td>${y1[index_y]}</td>`;
+
         result = x1[index_x] * y1[index_y];
-        cell += `<td>${result}</td>`
+        cell += `<td>${result}</td>`;
     }
+    if (index_x == 0) row += `<thead><tr>${headerCell}</tr></thead>`;
     row += `<tr>${cell}</tr>`;
 }
-table = `<table>${row}</table>`
+table = `<table id="myTable">${row}</table>`;
 
 
 let div = document.getElementById('calc');
 div.innerHTML = table;
+
+function changeColor(value){
+    alert('Hello ' + value);
+    console.log('result ' + value);
+}
+
+let btn = document.getElementById('changeColor');
+btn.addEventListener('click', function(a1) {
+    changeColor('Vladimir');
+    this.className = 'thead';
+    /*
+    let tbl = document.getElementsByTagName('table');
+    console.log(tbl[0]);
+    */
+
+   let tbl = document.getElementById('myTable');
+   tbl.tHead.className = 'thead';
+
+    //
+});
+
+
+
+
 
 /*
 document.write("Hello World!");
