@@ -1,4 +1,16 @@
 
-.col-xl-3 > button {
-    width: 100%;
+body{
+    padding-top: 25px;
+}
+
+button {
+    width: 23%;
+}
+
+#txtNumbers{
+    width: 92.6%;
+}
+
+.result {
+    color: red;
 }
