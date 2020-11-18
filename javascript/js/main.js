@@ -151,13 +151,11 @@ console.log(
 );
 
 
-Object.entries(carsObject).forEach(
-    function (entry) { // callback
+Object.entries(carsObject).forEach(function (entry) { // callback
         const [key, value] = entry;
         //console.log(key, value, entry.key, entry.value);
         console.log(entry[1].type);
-    }
-);
+    });
 
 
 
