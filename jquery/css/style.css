@@ -1,0 +1,28 @@
+
+.borderX{
+    border: 1px solid red;
+}
+
+.rowGray{
+    background-color: gainsboro;
+}
+
+.rowWhite {
+    background-color: white;
+}
+
+.big {
+    height: 35px;
+}
+
+#effects {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+#change-position-left, #change-position-right, #change-position-up, #change-position-down 
+{
+    width: 50px;
+}
+
