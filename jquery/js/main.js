@@ -90,6 +90,41 @@ $(document).ready(function(){
     });
 
 
+
+
+    $('#updateContent').on('click', function(event){
+        let obj = document.getElementById('effects');
+        $.ajax({
+            url: "test.html",
+            success:function(data){
+                console.log(data);
+                obj.innerHTML = data;
+            },
+            error:function(jqXHR, textStatus, errorThrown){
+                console.log('jqXHR: ', jqXHR, 'textStatus: ', textStatus, 'errorThrown: ', errorThrown);
+
+                let err = `<h3>${textStatus}</h3><b class="red">${errorThrown}</b>`;
+                obj.innerHTML = err;
+            },
+            beforeSend: function( xhr ) {
+                xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+                console.log('before!');
+              }
+        }).done(function() {
+            //$( this ).addClass( "done" );
+            console.log('done!');
+            obj.append('done!');
+        }).fail(function() {
+            console.log("error" );
+            obj.append('error!');
+        }).always(function() {
+            console.log( "complete!" );
+            obj.append('complete!');
+        });
+      
+      
+    });
+
 });
 
 function changeText(){
