@@ -41,8 +41,12 @@ $(document).ready(function(){
 
     // COL 1 ROW 3
     var query = 'health'
+
+    let date = new Date();
+    let currentDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+
     $.ajax({
-        url: 'http://newsapi.org/v2/everything?q=' + query + '&from=2020-10-25&sortBy=publishedAt&apiKey=4a5de1e54b304bf2909af12bf979c242',
+        url: 'http://newsapi.org/v2/everything?q=' + query + '&from=' + currentDate + '&sortBy=publishedAt&apiKey=4a5de1e54b304bf2909af12bf979c242',
         success: function(data){
             console.log(data);
 
@@ -50,8 +54,6 @@ $(document).ready(function(){
             $('#col2').append(news.renderCard());
         }
     });
-    
-
 });
 
 /*
