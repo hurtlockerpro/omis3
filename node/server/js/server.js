@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
 
-
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 let books = [
@@ -58,11 +59,12 @@ app.get('/book/:isbn', (req, res) => {
     books.forEach(element => {
         if (element.isbn == req.params.isbn)
         {
-            return res.send(element);
+            res.send(element);
+            return;
         }
     });
   
-    res.status(404).send("Book not found"); // browser
+    //res.send("Book not found"); // browser
 });
 
 
@@ -85,7 +87,9 @@ app.delete('/book/:isbn', (req, res) => {
 app.post('/book/edit/ok', (req, res) => {
     
     console.log('new data: ');  
-    console.log(req.body);
+    console.log(req.bodycd);
+
+    res.status(200).send("ok ok ok");
     /*
     books.forEach(element => {
         if (element.isbn == req.params.isbn)

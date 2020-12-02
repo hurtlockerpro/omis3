@@ -26,7 +26,7 @@ const loadBooks = () => {
         error: function(err, status, message){
             //
             if (status == 404){
-                console.log('nmot found');
+                console.log('not found');
             }
         }
     });
@@ -58,18 +58,11 @@ $(document).on('click', '.edit', function(event){
     $('#myModalBook').on('shown.bs.modal', function () {
 
         console.log('modal is shown');
-        // get form 
-        $.ajax({
-            url: 'form.html',
-            success: function(data){
-                //console.log(data);
-                let window = document.querySelector('#myModalBook .modal-body').innerHTML = data;
-            }
-        });
-
+    
         $.ajax({
             // http://localhost:3000/book/7575757575
             url: 'http://localhost:3000/book/' + isbn,
+            type: 'GET',
             success: function(data){
                 //console.log(data);
 
@@ -88,22 +81,38 @@ $(document).on('click', '.edit', function(event){
 
 });
 
+// get form 
 
-$(document).on('submit', '#btnSubmitForm', function(event){
+$.ajax({
+    url: 'form.html',
+    dataType: 'html',
+    success: function(data){
+        //console.log(data);
+        document.querySelector('#myModalBook .modal-body').innerHTML = data;
+    }
+});
 
-        event.preventDefault();
 
-        $.ajax({
-            url: 'http://localhost:3000/book/edit/ok', // + isbn,
-            type: 'json',
-            method: 'post',
-            data: $('newBook').serialize(),
-            success: function(data){
-                console.log(data);
+$(document).on('submit', '#newBook', function(event){
 
-            }
-        });
+    event.preventDefault();
+
+    var form = $(this);
+    console.log("serialized data: ", $(this).serialize());
+
+    $.ajax({
+        url: 'http://localhost:3000/book/edit/ok', // + isbn,
+        type: 'POST',
+        dataType: 'text',
+        data: form.serialize(),
+        success: function(data){
+            
+            console.log("this is from sending form: ", data);
+
+        }
+    });
 
 });
+
 
 
