@@ -84,22 +84,51 @@ app.delete('/book/:isbn', (req, res) => {
     res.status(200).send("Book deleted successfully"); // browser
 });
 
-app.post('/book/edit/ok', (req, res) => {
+app.post('/book/edit', (req, res) => {
     
     console.log('new data: ');  
-    console.log(req.bodycd);
+    console.log(req.body);
 
-    res.status(200).send("ok ok ok");
-    /*
+    let isSent = false;
     books.forEach(element => {
-        if (element.isbn == req.params.isbn)
+        if (element.isbn == req.body.isbn) // params -> GET, body -> POST
         {
-            return res.send(element);
+            element.title = req.body.title;
+            element.author = req.body.author;
+            element.description = req.body.description;
+            element.publish_date = req.body.publish_date;
+            element.pages = req.body.pages;
+
+            isSent = true;
+
+            // TODO
+            return res.status(200).send("Book was succeffully updated!");
         }
     });
   
-    res.status(404).send("Book not found"); // browser
-    */
+    if (isSent == false) res.status(404).send("Book not found"); // browser
+});
+
+
+
+app.post('/book/add', (req, res) => {
+    
+    console.log('new data (added new): ');  
+    console.log(req.body);
+
+    
+    let book = {
+        isbn: req.body.isbn,
+        title: req.body.title,
+        author: req.body.author,
+        description: req.body.description,
+        publish_date: req.body.publish_date,
+        pages: req.body.pages
+    };
+    books.push(book);
+
+    //
+    return res.status(200).send("Book was succeffully added!");
 });
 
 app.listen(port, () => console.log('Books app is working OK!'));
