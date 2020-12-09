@@ -1,6 +1,6 @@
 
-let y:number = 10;
-let color: string = "blue";
+let _y: number = 10;
+let _color: string = "blue";
 color = 'red';
 
 
@@ -25,17 +25,15 @@ const maybe: string;
 
 if (typeof maybe === "string") {
     // TypeScript knows that maybe is a string
-    const aString: string = maybe;
+    const _String: string = maybe;
     // So, it cannot be a boolean
-    const aBoolean: boolean = maybe;
+    const _Boolean: boolean = maybe;
   // Type 'string' is not assignable to type 'boolean'.
   }
 
 
-  function getValue(key: string): void {
-
-    
-    //return 10;
+  function getValue(key: string): number {
+    return 10;
   };
 
   let z:number = getValue(222);
@@ -72,24 +70,27 @@ function buildName2(firstName: string, lastName?: string) {
 
 // overload 
 function pickCard(x: any): any {}
-function pickCard(x: number):number  {}
-function pickCard(x: string): string {}
+function pickCard(x: number): number  { return 10; }
+function pickCard(x: string): string { return "abc"; }
+
+//pickCard();
 
 console.log("Hello from TypeScript " + y);
-
+/*
 class a{
-    let #x;
+    #x;
     let y;
     static D;
 }
 
 new a()
 a::D
-
-
+*/
+/*
 function identity<T>(arg: T): T {
     return arg;
   }
 
   identity:string()
   identity:number()
+  */

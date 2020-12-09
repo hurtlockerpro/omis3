@@ -1,5 +1,5 @@
-var y = 10;
-var color = "blue";
+var _y = 10;
+var _color = "blue";
 color = 'red';
 var list = [1, 2, 3];
 // Declare a tuple type
@@ -18,13 +18,13 @@ var c = Color.Green;
 var maybe;
 if (typeof maybe === "string") {
     // TypeScript knows that maybe is a string
-    var aString = maybe;
+    var _String = maybe;
     // So, it cannot be a boolean
-    var aBoolean = maybe;
+    var _Boolean = maybe;
     // Type 'string' is not assignable to type 'boolean'.
 }
 function getValue(key) {
-    //return 10;
+    return 10;
 }
 ;
 var z = getValue(222);
@@ -50,22 +50,25 @@ function buildName(firstName, lastName) {
 }
 // overload 
 function pickCard(x) { }
-function pickCard(x) { }
-function pickCard(x) { }
+function pickCard(x) { return 10; }
+function pickCard(x) { return "abc"; }
+//pickCard();
 console.log("Hello from TypeScript " + y);
-var a = /** @class */ (function () {
-    function a() {
-    }
-    return a;
-}());
-let;
-#x;
-var y;
-D;
-new a();
-a: : D;
-function identity(arg) {
-    return arg;
+/*
+class a{
+    #x;
+    let y;
+    static D;
 }
-identity: string();
-identity: number();
+
+new a()
+a::D
+*/
+/*
+function identity<T>(arg: T): T {
+    return arg;
+  }
+
+  identity:string()
+  identity:number()
+  */ 
