@@ -1,0 +1,51 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <span>Welcome {{ firstname }} !!!</span>
+  2 + 2 = {{ 2 + 2 }}
+</div>
+
+
+<input type="text" name="firstname" [(ngModel)]="firstname"> 
+
+<button (click)="setValue()">Set value</button>
+
+<p class="red">Total: {{ totalClicks }}</p>
+<button type="button" (click)="increment()">+</button>
+<button type="button" (click)="decrement($event)">-</button>
+
+
+<div [class.redBox]="isRed">Test</div>
+<div [style.background-color]="isRed ? 'red' : 'green'">Test</div>
+<button (click)="switchColor()">Swich Color</button>
+<hr>
+<div *ngIf="myIf;else elseBlock" >this is paragraph</div>
+<ng-template #elseBlock>
+  Content to render when condition is false.
+  <b>hello</b>
+</ng-template>
+
+<hr>
+<div *ngIf="myIf2;then thenBlock else elseBlock2" >this is paragraph</div>
+<ng-template #thenBlock>Block 1 Content 1.</ng-template>
+<ng-template #elseBlock2>Block 2 Content 2. <b>hello</b></ng-template>
+<hr>
+
+
+<ul>
+  <li *ngFor="let car of cars; let i = index ">{{ i }} - {{ car }}</li>
+</ul>
+<button type="button" (click)="addCar()">+</button>
+
+<hr>
+
+-->>>
+<div [ngSwitch]="totalClicks">
+
+  <ng-template ngSwitchCase="1">Block 1 Content 1.</ng-template>
+  <ng-template ngSwitchCase="2">Block 2 Content 2.</ng-template>
+</div>
+
+
+
+
+<router-outlet></router-outlet>

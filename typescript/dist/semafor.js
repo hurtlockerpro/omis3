@@ -37,13 +37,11 @@ var Semafor = /** @class */ (function () {
     Semafor.prototype.renderSemafor = function (div) {
         this.semafor.innerHTML += div.outerHTML;
     };
-    Semafor.prototype.getColorIndex = function () {
+    Semafor.prototype.getCurrentSecond = function () {
         return this.counter;
     };
-    Semafor.prototype.setColorIndex = function (index) {
-        if (index >= 4)
-            index = 3;
-        this.counter = index;
+    Semafor.prototype.setCurrentSecond = function () {
+        this.counter++;
     };
     Semafor.prototype.getSemaforCircle = function () {
         var _this = this;
@@ -54,27 +52,21 @@ var Semafor = /** @class */ (function () {
         });
         return totalSeconds;
     };
-    Semafor.prototype.runSemafor = function (activeIndex) {
-        console.log(parseInt(this.Timer[activeIndex].timer));
-        //if (this.getColorIndex() == activeIndex)
-        //{
+    Semafor.prototype.runSemafor = function () {
         var div = '';
-        setTimeout(function () {
-            // yellow
-            for (var i = 0; i <= 2; i++) {
-                if (i == activeIndex) {
-                    div += this.renderSemafor(this.createElememt(this.Timer[activeIndex].name));
-                }
-                div += this.renderSemafor(this.createElememt(this.gray));
+        // yellow
+        for (var i = 0; i <= 2; i++) {
+            if (i == activeIndex) {
+                div += this.renderSemafor(this.createElememt(this.Timer[activeIndex].name));
             }
-            //this.setColorIndex(index + 1);
-        }, parseInt(this.Timer[activeIndex].timer) * 1000);
-        //}
+            div += this.renderSemafor(this.createElememt(this.gray));
+        }
     };
     return Semafor;
 }());
 var semafor = document.getElementById('semafor');
 var s = new Semafor(semafor);
-//setInterval(function(){
-s.runSemafor(1);
-//}, 1000);
+setInterval(function () {
+    s.runSemafor();
+    s.setCurrentSecond();
+}, 1000);

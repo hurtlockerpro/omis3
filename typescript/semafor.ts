@@ -53,13 +53,12 @@ class Semafor{
         this.semafor.innerHTML += div.outerHTML;
     }
 
-    getColorIndex():number{
+    getCurrentSecond():number{
         return this.counter;
     }
 
-    setColorIndex (index):void {
-        if (index >= 4) index = 3;
-        this.counter = index;
+    setCurrentSecond ():void {
+        this.counter++;
     }
 
     getSemaforCircle():number{
@@ -71,32 +70,27 @@ class Semafor{
         return totalSeconds;
     }
 
-    runSemafor(activeIndex:number):void{
+    runSemafor():void{
 
-        console.log(parseInt(this.Timer[activeIndex].timer));
+        let div = '';
+     
+        // yellow
+        for (let i = 0; i <= 2; i++) {
+            if (i == activeIndex){
+                div += this.renderSemafor(this.createElememt(this.Timer[activeIndex].name));
+            }
+            div += this.renderSemafor(this.createElememt(this.gray));
+        }
 
-        //if (this.getColorIndex() == activeIndex)
-        //{
-            let div = '';
-            setTimeout(function(){
-                // yellow
-                for (let i = 0; i <= 2; i++) {
-                    if (i == activeIndex){
-                        div += this.renderSemafor(this.createElememt(this.Timer[activeIndex].name));
-                    }
-                    div += this.renderSemafor(this.createElememt(this.gray));
-                }
 
-                //this.setColorIndex(index + 1);
-
-            }, parseInt(this.Timer[activeIndex].timer) * 1000)
-        //}
      
     }
 }
 
 let semafor = document.getElementById('semafor');
 let s = new Semafor(semafor);
-//setInterval(function(){
-    s.runSemafor(1);
-//}, 1000);
+setInterval(function(){
+    s.runSemafor();
+    s.setCurrentSecond();
+
+}, 1000);
