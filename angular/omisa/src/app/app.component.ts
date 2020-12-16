@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   /*
   template: `Welcome {{ firstname }} !!!
-  !!!!!!!        ----`,
-  */
+    <app-child [lastName]="lastname"></app-child>
+    <button type="button" (click)="changeName()">+</button>
+
+  `,*/
   styleUrls: ['./app.component.scss']
   // styles
 })
@@ -19,9 +21,13 @@ export class AppComponent {
   myIf: boolean = false;
 
   myIf2: boolean = false;
-
   cars = ['audi', 'bmw', 'citroen'];
 
+  lastname:string = "Kjahrenov";
+
+  changeName(): void{
+    this.lastname = 'MyLastname';
+  }
 
   increment() :void
   {
