@@ -1,0 +1,25 @@
+
+.itemRow {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(211, 211, 211);
+    margin: 2px;
+}
+input[type="checkbox"]{
+
+}
+.todoTitle {
+
+}
+button{
+    width: 25px;
+    height: 25px;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.textLineThroght {
+    text-decoration: line-through;
+}

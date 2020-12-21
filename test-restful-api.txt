@@ -1,0 +1,6 @@
+http://jsonplaceholder.typicode.com/todos
+
+https://reqres.in
+
+HEADER RESTful -> put, insert, delete, update 
+API -> GET, POST

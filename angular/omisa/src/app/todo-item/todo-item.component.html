@@ -1,7 +1,14 @@
 
-<div class="itemRow">
-    <input type="checkbox" name="complete">
-    <div class="strikeThrought">{{ todoTitle }}</div>
-    <button>x</button>
+<!-- class="itemRow textLineThroght" -->
+<div [ngClass]="setStyles()">
+    <input 
+        type="checkbox" 
+        name="complete" 
+        (change)='onCheckBoxCompleted()' 
+        id="{{ todoItem.id }}"
+        [checked]="todoItem.completed"
+    >
+    <span class="todoTitle">{{ todoItem.title }}</span>
+    <button class="btn btn-danger" onclick="alert('hello')">x</button>
 </div>
 

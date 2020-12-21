@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { TodosComponent } from './todos/todos.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { TodoAddComponent } from './todo-add/todo-add.component';
+ 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { TodoAddComponent } from './todo-add/todo-add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule // <- insert
+    FormsModule, // <- insert
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
